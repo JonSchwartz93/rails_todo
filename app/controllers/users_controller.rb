@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	# before_filter :authorize
+
 	before_action :find_user, only: [:show, :edit, :update, :destroy]
 
 	def new
@@ -8,7 +10,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			# session[:id] = @user.id
+			session[:id] = @user.id
 			redirect_to @user
 		else
 			@errors = @user.errors.full_messages
@@ -37,12 +39,12 @@ class UsersController < ApplicationController
 
 	private
 
-		def find_user
-			@user = User.find(params[:id])
-		end
+	def find_user
+		@user = User.find(params[:id])
+	end
 
-		def user_params
-	  	params.require(:user).permit(:first_name, :last_name, :email, :password_digest)
-	  end
+	def user_params
+	  	params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+	 end
 end
 

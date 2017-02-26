@@ -1,16 +1,10 @@
 <%= form_for @user do |f| %>
-	<%= f.label :first_name %><br>
-	<%= f.text_field :first_name %><br>
+	First Name: <%= f.text_field :first_name %><br>
+	Last Name: <%= f.text_field :last_name %><br>
+	Email: <%= f.text_field :email %><br>
+	Password: <%= f.password_field :password %><br>
+	Password Confirmation: <%= f.password_field :password_confirmation %>
 	<br>
-	<%= f.label :last_name %><br>
-	<%= f.text_field :last_name %><br>
 	<br>
-	<%= f.label :email %><br>
-	<%= f.text_field :email %><br>
-	<br>
-	<%= f.label :password %><br>
-	<%= f.text_field :password_digest %><br>
-	<br>
-
 	<%= f.submit %>
 <% end %>
