@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	before_save :downcase_email
 	has_secure_password
-	# has_many :lists, foreign_key: "creator_id"
+	has_many :lists
 	validates :first_name, presence: true, length: { maximum: 20 }
 	validates :last_name, presence: true, length: { maximum: 20 }
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

@@ -11,7 +11,11 @@
 <nav class="navbar navbar-top navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-    	<h3><%= link_to "ToDo Lists", root_path %></h3>
+      <% if logged_in? %>        
+    	  <h3><%= link_to "ToDo Lists", current_user %></h3>
+      <% else %>
+        <h3><%= link_to "ToDo Lists", current_user %></h3>
+      <% end %>
     </div>
     <ul class="nav navbar-nav">
       <li class="dropdown">
@@ -19,13 +23,13 @@
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
          	<% if logged_in? %>
-				<li><%= link_to "Home", root_path %></li>
-				<li><%= link_to "Profile", current_user %></li>
-				<li class="divider"></li>
- 				<li><%= link_to "Log Out", logout_path, method: "delete" %></li>
-			<% else %>
-				<li><%= link_to "Login", login_path %></li>
-			<% end %>
+				    <li><%= link_to "Home", root_path %></li>
+				    <li><%= link_to "Profile", current_user %></li>
+				    <li class="divider"></li>
+ 				   <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+			     <% else %>
+				    <li><%= link_to "Login", login_path %></li>
+			     <% end %>
         </ul>
       </li>
     </ul>

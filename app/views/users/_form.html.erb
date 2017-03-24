@@ -1,7 +1,6 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<%= form_for @user do |f| %>
-			<%= render 'shared/error_messages' %>
 			First Name: <%= f.text_field :first_name, class: 'form-control' %><br>
 			Last Name: <%= f.text_field :last_name, class: 'form-control' %><br>
 			Email: <%= f.email_field :email, class: 'form-control' %><br>

@@ -1,0 +1,6 @@
+<h1><%= @list.title %></h1>
+<h3><%= @list.description %></h3>
+<%= link_to "Back to Profile", current_user %><br>
+<%= link_to "Edit List", edit_user_list_path(current_user, @list) %><br>
+<%= link_to "Delete List", user_list_path(current_user, @list), method: :delete, data: { confirm: "Are you sure you want to delete this list?"} %>
+
