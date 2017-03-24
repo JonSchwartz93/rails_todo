@@ -1,5 +1,13 @@
 <h1><%= @user.first_name %>'s Profile</h1>
 <h3>To-Do Lists</h3>
 
-<%= link_to "Edit Account", edit_user_path(@user) %>
+<ul>
+	<% current_user.lists.each do |list| %>
+		<li><%= link_to list.title, user_list_path(current_user, list) %></li>
+	<% end %>
+</ul>
+
+<%= link_to "Create A List", new_user_list_path(@user) %><br>
+<%= link_to "Edit Account", edit_user_path(@user) %><br>
 <%= link_to "Delete Account", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete your account?" } %>
+
