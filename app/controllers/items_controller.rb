@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-	before_action :find_list, only: [:new, :create]
+	before_action :find_list, only: [:new, :create, :destroy, :complete]
+	before_action :find_item, except: [:create]
 
 	def new
 		@item = Item.new
@@ -7,16 +8,33 @@ class ItemsController < ApplicationController
 
 	def create
 		@item = @list.items.new(item_params)
-		# @item = current_user.lists.items.new(item_params)
 		if @item.save
 			redirect_to [@list]
 		else
 			@errors = @item.errors.full_messages
-			render 'new'
+			redirect_to [@list]
 		end
 	end
 
+	def destroy
+		if @item.destroy
+			flash[:success] = "List Item was deleted"
+		else
+			flash[:error] = "List Item could not be deleted."
+		end
+		redirect_to @list
+	end
+
+	def complete
+		@item.update_attribute(:completed_at, Time.now)
+		redirect_to @list, notice: "Item Completed"
+	end
+
 private
+
+	def find_item
+		@item = @list.items.find(params[:id])
+	end
 
 	def find_list
 		@list = List.find(params[:list_id])

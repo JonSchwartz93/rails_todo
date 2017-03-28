@@ -1,12 +1,13 @@
 <h1><%= @list.title %></h1>
 <h3><%= @list.description %></h3>
-<ul>
-	<% @list.items.each do |item| %>
-		<li><%= item.content %></li>
-	<% end %>
-</ul>
 
-<%= link_to "Add to List", new_list_item_path(@list, @item) %><br>
+<div id="todo_items_wrapper">
+	<%= render @list.items %>
+	<div id="form">
+		<%= render "items/form"%>
+	</div>
+</div>
+
 <%= link_to "Edit List", edit_user_list_path(current_user, @list) %><br>
 <%= link_to "Delete List", user_list_path(current_user, @list), method: :delete, data: { confirm: "Are you sure you want to delete this list?"} %><br>
 <%= link_to "Back to Profile", current_user %>
