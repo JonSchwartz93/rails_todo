@@ -26,10 +26,10 @@
 				    <li><%= link_to "Home", root_path %></li>
 				    <li><%= link_to "Profile", current_user %></li>
 				    <li class="divider"></li>
- 				   <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
-			     <% else %>
+ 				     <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+			    <% else %>
 				    <li><%= link_to "Login", login_path %></li>
-			     <% end %>
+			    <% end %>
         </ul>
       </li>
     </ul>
