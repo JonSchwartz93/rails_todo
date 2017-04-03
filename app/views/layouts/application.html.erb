@@ -1,42 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Todo</title>
+  <title>Priorities Portal</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/png" href="../../app/assets/images/checkmark.png">
 </head>
 <body>
 
-<nav class="navbar navbar-top navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <% if logged_in? %>        
-    	  <h3><%= link_to "ToDo Lists", current_user %></h3>
-      <% else %>
-        <h3><%= link_to "ToDo Lists", current_user %></h3>
-      <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-md-6 hidden-xs-down bg-faded sidebar">
+        <%= render "shared/navbar" %>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-         	<% if logged_in? %>
-				    <li><%= link_to "Home", root_path %></li>
-				    <li><%= link_to "Profile", current_user %></li>
-				    <li class="divider"></li>
- 				     <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
-			    <% else %>
-				    <li><%= link_to "Login", login_path %></li>
-			    <% end %>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</nav>
 
-	<%= yield %>
+    <div class="col-sm-6 offset-sm-6 col-md-6 offset-md-6 pt-6">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>
