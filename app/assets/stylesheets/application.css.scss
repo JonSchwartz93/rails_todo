@@ -14,7 +14,7 @@
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
 
 html {
     height: 100%;
@@ -30,7 +30,11 @@ body {
   background:     -ms-linear-gradient(40deg, #98e789 10%, #dfa26b 100%);
   background:      -o-linear-gradient(40deg, #98e789 10%, #dfa26b 100%);
   background:         linear-gradient(40deg, #98e789 10%, #dfa26b 100%);
-  font-family: 'Lato', sans-serif;
+  font-family: 'Indie Flower', sans-serif;
+}
+
+.row {
+	min-height: 100%;
 }
 
 #sidenav {
@@ -43,12 +47,12 @@ body {
 	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
 	padding: 1em;
 	text-align: center;
+	overflow: auto;
 
 	a {
 		color: #dfa26b;
 		font-weight: 300%;
 	}
-
 }
 
 .clearfix:before,
@@ -62,7 +66,7 @@ body {
 }
 
 .index_row {
-	padding: 2em;
+	padding: 1em;
 	border-bottom: 1px solid rgba(250,250,250, .3);
 }
 
@@ -71,13 +75,14 @@ body {
 	width: 75%;
 	max-width: 750px;
 	background: rgba(250, 250, 250, .3);
-	margin: 3em 0 9em 3em;
+	margin: 3em 0 1em 3em;
 	border-radius: 7px;
 	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
 	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
 	padding: 1em 0;
 	text-align: center;
 	color: #1F7972;
+	overflow:auto;
 }
 
 .list_title {
@@ -101,10 +106,11 @@ body {
 #items_wrapper {
 	.row {
 		margin: auto;
+		height: 100%;
 		width: 100%;
 		border-top: 1px solid rgba(250,250,250, .3);
 		border-bottom: 1px solid rgba(250,250,250, .3);
-		font-size: 150%;
+		font-size: 100%;
 
 		.complete {
 			width: 10%;
@@ -144,9 +150,9 @@ body {
 
 	#form {
 		margin-top: 2em;
-		padding: 0 5%;
+		/*padding: 0 5%;*/
 		input[type="text"] {
-			width: 72%;
+			width: 60%;
 			margin-right: 2%;
 			display: inline-block;
 			outline: none;
@@ -184,5 +190,24 @@ body {
 	color: white;
 	a {
 		color: white;
+	}
+}
+
+footer {
+	bottom: 0;
+	width: 100%;
+	position: absolute;
+	background: rgba(250, 250, 250, .3);
+	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
+	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
+	border-radius: 7px;
+	text-align: center;
+	h3 {
+		color: #dfa26b;
+		font-weight: light;
+
+	}
+	a {
+		color: #1F7972;
 	}
 }
