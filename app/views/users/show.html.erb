@@ -1,13 +1,19 @@
-<h1><%= @user.first_name %>'s Profile</h1>
-<h3>To-Do Lists</h3>
-
-<ul>
-	<% current_user.lists.each do |list| %>
-		<li><%= link_to list.title, user_list_path(current_user, list) %></li>
+<div class="content">
+	<h1><%= @user.first_name %>'s Profile</h1>
+	<% if current_user.lists.empty? %>
+		<h2>You Don't Have Any Lists</h2>
+	<% else %>
+		<h2>My Lists</h2>
+		<% current_user.lists.each do |list| %>
+			<div class="index_row clearfix">
+				<p class="list_title"><%= link_to list.title, user_list_path(current_user, list) %></p>
+			</div>
+		<% end %>
 	<% end %>
-</ul>
-
-<%= link_to "Create A List", new_user_list_path(@user) %><br>
-<%= link_to "Edit Account", edit_user_path(@user) %><br>
-<%= link_to "Delete Account", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete your account?" } %>
-
+	
+	<div class="links">
+		<%= link_to "Create A List", new_user_list_path(@user) %> |
+		<%= link_to "Edit Account", edit_user_path(@user) %> |
+		<%= link_to "Delete Account", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete your account?" } %>
+	</div>
+</div>
