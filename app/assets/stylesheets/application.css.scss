@@ -14,7 +14,7 @@
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700);
 
 html {
     height: 100%;
@@ -30,7 +30,7 @@ body {
   background:     -ms-linear-gradient(40deg, #98e789 10%, #dfa26b 100%);
   background:      -o-linear-gradient(40deg, #98e789 10%, #dfa26b 100%);
   background:         linear-gradient(40deg, #98e789 10%, #dfa26b 100%);
-  font-family: 'Indie Flower', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .row {
